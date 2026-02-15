@@ -1,26 +1,184 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --paper: #f4efe5;
+  --paper-deep: #ece5d7;
+  --ink: #1e1913;
+  --ink-soft: #675f55;
+  --line: rgba(30, 25, 19, 0.18);
+  --line-strong: rgba(30, 25, 19, 0.32);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-editorial-sans), sans-serif;
+}
+
+.page-paper {
+  background:
+    radial-gradient(circle at 10% 10%, rgba(117, 89, 48, 0.06), transparent 42%),
+    radial-gradient(circle at 90% 85%, rgba(117, 89, 48, 0.05), transparent 45%),
+    linear-gradient(to bottom, var(--paper), var(--paper-deep));
+}
+
+.editorial-container {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1160px;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.editorial-title {
+  font-family: var(--font-editorial-serif), serif;
+  letter-spacing: -0.01em;
+}
+
+.section-rule {
+  border-top: 1px solid var(--line);
+}
+
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  background-color: rgb(250, 248, 248);
+  gap: 0.5rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 9999px;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.editor-card {
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.46);
+  transition: transform 0.28s ease, background-color 0.28s ease, border-color 0.28s ease;
+}
+
+.editor-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--line-strong);
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translate3d(0, calc(20px + var(--parallax-offset, 0px)), 0);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  will-change: transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translate3d(0, var(--parallax-offset, 0px), 0);
+}
+
+.services-loop-viewport {
+  position: relative;
+  width: min(100%, 23rem);
+  height: clamp(18rem, 52vh, 24rem);
+  overflow: hidden;
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 16%, #000 84%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 16%, #000 84%, transparent 100%);
+}
+
+.services-loop-track {
+  display: grid;
+  gap: 1rem;
+  animation: servicesLoopDown 18s linear infinite;
+  will-change: transform;
+}
+
+.services-loop-card {
+  min-height: 8.4rem;
+}
+
+@keyframes servicesLoopDown {
+  from {
+    transform: translate3d(0, -50%, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.dropcap::first-letter {
+  float: left;
+  margin-right: 0.4rem;
+  font-family: var(--font-editorial-serif), serif;
+  font-size: 3rem;
+  line-height: 0.95;
+}
+
+.about-photo-wrap {
+  --spot-x: 50%;
+  --spot-y: 50%;
+}
+
+.about-photo-shadow,
+.about-photo-beam {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.about-photo-shadow {
+  background: rgba(11, 9, 7, 0.7);
+  transition: background 0.2s ease;
+}
+
+.about-photo-wrap.is-active .about-photo-shadow {
+  background:
+    radial-gradient(
+      circle 170px at var(--spot-x) var(--spot-y),
+      rgba(11, 9, 7, 0.05) 0%,
+      rgba(11, 9, 7, 0.2) 24%,
+      rgba(11, 9, 7, 0.8) 55%,
+      rgba(11, 9, 7, 0.92) 100%
+    );
+}
+
+.about-photo-beam {
+  opacity: 0;
+  mix-blend-mode: screen;
+  background:
+    radial-gradient(
+      circle 130px at var(--spot-x) var(--spot-y),
+      rgba(255, 243, 206, 0.28) 0%,
+      rgba(255, 243, 206, 0.1) 38%,
+      rgba(255, 243, 206, 0) 70%
+    );
+  transition: opacity 0.2s ease;
+}
+
+.about-photo-wrap.is-active .about-photo-beam {
+  opacity: 1;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .about-photo-wrap {
+    cursor: none;
+  }
+}
+
+@media (max-width: 1023px) {
+  .services-loop-viewport {
+    width: min(100%, 14rem);
+    height: clamp(16rem, 45vh, 20rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .services-loop-track {
+    animation: none;
+  }
 }
