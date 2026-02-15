@@ -24,7 +24,7 @@ const menu = {
 };
 
 const socials = [
-  { label: "IG", href: "https://instagram.com/sepsigmay",  },
+  { label: "IG", href: "https://instagram.com/sepsigmay" },
   { label: "IN", href: "https://linkedin.com/in/aditya-nugraha-891932261" },
   { label: "GH", href: "https://github.com/arunara8" },
 ];
@@ -57,7 +57,7 @@ export default function Navbar({ lang, setLang }: NavbarProps) {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[var(--line)] bg-[rgba(122, 0, 0, 0.94)] backdrop-blur-sm">
+    <header className="sticky top-0 z-50 border-b border-[var(--line)] bg-[rgba(10,25,47,0.84)] backdrop-blur-md">
       <div className="editorial-container relative py-3">
         <div className="grid items-center gap-4 md:grid-cols-[1fr_auto_1fr]">
           <div className="hidden items-center gap-2 md:flex">
@@ -67,7 +67,7 @@ export default function Navbar({ lang, setLang }: NavbarProps) {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-[var(--line)] text-xs text-[var(--ink-soft)] transition-colors hover:text-[var(--ink)]"
+                className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-[var(--line)] text-xs text-[var(--ink-soft)] transition-colors hover:border-[var(--line-strong)] hover:text-[#64ffda]"
                 aria-label={social.label}
                 title={social.label}
               >
@@ -89,7 +89,7 @@ export default function Navbar({ lang, setLang }: NavbarProps) {
                 type="button"
                 onClick={() => setLang("en")}
                 className={`rounded-full px-3 py-1 text-xs transition-colors ${
-                  lang === "en" ? "bg-[var(--ink)] text-[var(--paper)]" : "text-[var(--ink)]"
+                  lang === "en" ? "bg-[#64ffda] text-[#0a192f]" : "text-[var(--ink)]"
                 }`}
               >
                 EN
@@ -98,7 +98,7 @@ export default function Navbar({ lang, setLang }: NavbarProps) {
                 type="button"
                 onClick={() => setLang("id")}
                 className={`rounded-full px-3 py-1 text-xs transition-colors ${
-                  lang === "id" ? "bg-[var(--ink)] text-[var(--paper)]" : "text-[var(--ink)]"
+                  lang === "id" ? "bg-[#64ffda] text-[#0a192f]" : "text-[var(--ink)]"
                 }`}
               >
                 ID
@@ -109,17 +109,17 @@ export default function Navbar({ lang, setLang }: NavbarProps) {
           <button
             type="button"
             onClick={() => setOpen((value) => !value)}
-            className="absolute right-6 top-3.5 inline-flex h-10 w-10 items-center justify-center rounded-md border border-[var(--line-strong)] bg-[rgba(255,255,255,0.55)] p-0 text-[var(--ink)] md:hidden"
+            className="absolute right-6 top-3.5 inline-flex h-10 w-10 items-center justify-center rounded-md border border-[var(--line-strong)] bg-[rgba(17,34,64,0.88)] p-0 text-[var(--ink)] md:hidden"
             aria-label="Toggle menu"
             aria-expanded={open}
           >
-            {open ? "×" : "≡"}
+            {open ? "X" : "|||"}
           </button>
         </div>
 
         <div className="mt-3 hidden items-center justify-center gap-7 border-t border-[var(--line)] pt-3 text-sm uppercase tracking-[0.18em] md:flex">
           {menu[lang].map((item) => (
-            <a key={item.href} href={item.href} className="text-[var(--ink-soft)] transition-colors hover:text-[var(--ink)]">
+            <a key={item.href} href={item.href} className="text-[var(--ink-soft)] transition-colors hover:text-[#64ffda]">
               {item.label}
             </a>
           ))}
@@ -132,7 +132,7 @@ export default function Navbar({ lang, setLang }: NavbarProps) {
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="block rounded-lg px-3 py-2 text-sm text-[var(--ink-soft)] transition-colors hover:bg-[rgba(30,25,19,0.06)] hover:text-[var(--ink)]"
+                className="block rounded-lg px-3 py-2 text-sm text-[var(--ink-soft)] transition-colors hover:bg-[rgba(100,255,218,0.1)] hover:text-[#64ffda]"
               >
                 {item.label}
               </a>
@@ -142,14 +142,14 @@ export default function Navbar({ lang, setLang }: NavbarProps) {
                 <button
                   type="button"
                   onClick={() => setLang("en")}
-                  className={`rounded-full px-3 py-1 text-xs ${lang === "en" ? "bg-[var(--ink)] text-[var(--paper)]" : "text-[var(--ink)]"}`}
+                  className={`rounded-full px-3 py-1 text-xs ${lang === "en" ? "bg-[#64ffda] text-[#0a192f]" : "text-[var(--ink)]"}`}
                 >
                   EN
                 </button>
                 <button
                   type="button"
                   onClick={() => setLang("id")}
-                  className={`rounded-full px-3 py-1 text-xs ${lang === "id" ? "bg-[var(--ink)] text-[var(--paper)]" : "text-[var(--ink)]"}`}
+                  className={`rounded-full px-3 py-1 text-xs ${lang === "id" ? "bg-[#64ffda] text-[#0a192f]" : "text-[var(--ink)]"}`}
                 >
                   ID
                 </button>
@@ -159,16 +159,16 @@ export default function Navbar({ lang, setLang }: NavbarProps) {
                   <a
                     key={social.label}
                     href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-[var(--line)] text-xs text-[var(--ink-soft)]"
-                aria-label={social.label}
-                title={social.label}
-              >
-                <SocialIcon label={social.label} />
-              </a>
-            ))}
-          </div>
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-[var(--line)] text-xs text-[var(--ink-soft)]"
+                    aria-label={social.label}
+                    title={social.label}
+                  >
+                    <SocialIcon label={social.label} />
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
         )}

@@ -72,7 +72,7 @@ export default function Process({ lang }: ProcessProps) {
   const t = copy[lang];
 
   return (
-    <section className="editorial-container py-14 section-rule">
+    <section id="process" className="editorial-container py-14 section-rule">
       <div className="grid gap-10 md:grid-cols-[0.6fr,1.4fr]">
         <div data-reveal>
           <p className="text-xs uppercase tracking-[0.16em] text-[var(--ink-soft)]">Production Workflow</p>

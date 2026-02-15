@@ -47,7 +47,7 @@ export default function About({ lang }: AboutProps) {
   } as CSSProperties;
 
   return (
-    <section className="editorial-container py-12 section-rule">
+    <section id="about" className="editorial-container py-12 section-rule">
       <div className="grid items-center gap-6 lg:grid-cols-2" data-reveal>
         <article className="lg:self-center">
           <p className="text-xs uppercase tracking-[0.16em] text-[var(--ink-soft)]">Editorial Note</p>

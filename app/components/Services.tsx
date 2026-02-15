@@ -1,4 +1,4 @@
-import type { Lang } from "../page";
+﻿import type { Lang } from "../page";
 
 type ServicesProps = {
   lang: Lang;
@@ -6,42 +6,54 @@ type ServicesProps = {
 
 const copy = {
   en: {
-    heading: "Services",
+    heading: "Services Directory",
+    intro: "Classified capabilities for modern digital publication and product systems.",
     items: [
       {
         title: "Front-End Development",
         description:
-          "Modern, responsive, performance-optimized interfaces built with scalable structure.",
+          "Responsive editorial-grade interfaces engineered for speed, accessibility, and consistency.",
       },
       {
-        title: "Full-Stack Development",
+        title: "Full-Stack Systems",
         description:
-          "Backend systems, API architecture, and database design focused on long-term growth.",
+          "Robust backend architecture, API design, and scalable data structure for long-term growth.",
       },
       {
-        title: "UI Implementation & Optimization",
+        title: "UI Implementation",
         description:
-          "Pixel-accurate execution combined with performance tuning and SEO structure.",
+          "Pixel-accurate implementation with clean component structure and maintainable styling systems.",
+      },
+      {
+        title: "Performance Optimization",
+        description:
+          "Speed tuning, SEO structure, and deployment refinement for reliable production delivery.",
       },
     ],
   },
   id: {
-    heading: "Layanan",
+    heading: "Direktori Layanan",
+    intro: "Kemampuan terstruktur untuk publikasi digital modern dan sistem produk yang kuat.",
     items: [
       {
         title: "Pengembangan Front-End",
         description:
-          "Antarmuka modern, responsif, dan optimal performa dengan struktur yang skalabel.",
+          "Antarmuka responsif bergaya editorial yang dioptimalkan untuk kecepatan, aksesibilitas, dan konsistensi.",
       },
       {
-        title: "Pengembangan Full-Stack",
+        title: "Sistem Full-Stack",
         description:
-          "Sistem backend, arsitektur API, dan desain database yang berfokus pada pertumbuhan jangka panjang.",
+          "Arsitektur backend kokoh, desain API, dan struktur data skalabel untuk pertumbuhan jangka panjang.",
       },
       {
-        title: "Implementasi UI & Optimasi",
+        title: "Implementasi UI",
         description:
-          "Eksekusi pixel-accurate dipadukan dengan tuning performa dan struktur SEO.",
+          "Implementasi pixel-accurate dengan struktur komponen bersih dan styling yang mudah dipelihara.",
+      },
+      {
+        title: "Optimasi Performa",
+        description:
+          "Tuning kecepatan, struktur SEO, dan penyempurnaan deployment untuk rilis production yang andal.",
       },
     ],
   },
@@ -49,33 +61,28 @@ const copy = {
 
 export default function Services({ lang }: ServicesProps) {
   const t = copy[lang];
-  const loopItems = [...t.items, ...t.items];
 
   return (
-    <section id="services" className="editorial-container py-12 section-rule">
-      <div className="grid grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] items-center gap-4 md:gap-6">
-        <div data-reveal className="self-center">
-          <h2 className="editorial-title text-2xl md:text-4xl">{t.heading}</h2>
-          <p className="mt-4 max-w-xs text-[0.68rem] uppercase tracking-[0.14em] text-[var(--ink-soft)] md:max-w-sm md:text-xs">
-            Structured capabilities for modern digital publishing and product systems.
-          </p>
-        </div>
+    <section id="services" className="editorial-container py-14 section-rule">
+      <div className="max-w-3xl" data-reveal>
+        <p className="newspaper-label">Classifieds & Features</p>
+        <h2 className="editorial-title mt-2 text-3xl md:text-5xl">{t.heading}</h2>
+        <p className="newspaper-justify mt-4 text-base text-[var(--ink-soft)]">{t.intro}</p>
+      </div>
 
-        <div data-reveal className="services-loop-viewport justify-self-end">
-          <div className="services-loop-track">
-            {loopItems.map((service, index) => (
-              <article
-                key={`${service.title}-${index}`}
-                className="editor-card services-loop-card rounded-lg p-4 md:p-5"
-              >
-                <p className="text-[0.62rem] uppercase tracking-[0.14em] text-[var(--ink-soft)] md:text-[0.68rem]">Feature</p>
-                <h3 className="editorial-title mt-2 text-lg leading-tight md:text-xl">{service.title}</h3>
-                <p className="mt-2 text-xs leading-relaxed text-[var(--ink-soft)] md:text-sm">{service.description}</p>
-              </article>
-            ))}
-          </div>
-        </div>
+      <div className="mt-8 grid gap-4 sm:grid-cols-2">
+        {t.items.map((service) => (
+          <article key={service.title} data-reveal className="editor-card ornate-box rounded-sm p-5">
+            <p className="text-[0.67rem] uppercase tracking-[0.16em] text-[var(--accent)]">Inquire Within</p>
+            <h3 className="editorial-title mt-2 text-2xl uppercase">{service.title}</h3>
+            <p className="newspaper-justify mt-3 text-sm leading-relaxed text-[var(--ink-soft)]">{service.description}</p>
+            <a href="#contact" className="mt-4 inline-block text-xs uppercase tracking-[0.16em] text-[var(--accent)]">
+              Dispatch Inquiry ?
+            </a>
+          </article>
+        ))}
       </div>
     </section>
   );
 }
+

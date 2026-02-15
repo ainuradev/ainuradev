@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { FormEvent, useState } from "react";
 import type { Lang } from "../page";
@@ -9,34 +9,34 @@ type ContactProps = {
 
 const copy = {
   en: {
-    heading: "Let's Work Together.",
+    heading: "Get In Touch - Personal Inquiries",
     description:
-      "If you're looking for a developer who values structure, performance, and long-term scalability, let's talk.",
+      "Correspondence accepted for projects requiring structure, speed, and long-term scalability.",
     name: "Name",
     email: "Email",
     details: "Project Details",
-    namePlaceholder: "Your name",
+    namePlaceholder: "Your full name",
     emailPlaceholder: "you@company.com",
-    detailsPlaceholder: "Tell me about your project...",
-    button: "Send Message",
-    sending: "Sending...",
-    success: "Message sent successfully.",
-    error: "Failed to send message. Please try again.",
+    detailsPlaceholder: "Describe your request...",
+    button: "Dispatch Message",
+    sending: "Dispatching...",
+    success: "Telegram sent successfully.",
+    error: "Dispatch failed. Please retry.",
   },
   id: {
-    heading: "Mari Bekerja Sama.",
+    heading: "Hubungi Kami - Korespondensi Personal",
     description:
-      "Jika kamu mencari developer yang mengutamakan struktur, performa, dan skalabilitas jangka panjang, mari berdiskusi.",
+      "Korespondensi diterima untuk proyek dengan kebutuhan struktur, kecepatan, dan skalabilitas jangka panjang.",
     name: "Nama",
     email: "Email",
     details: "Detail Proyek",
-    namePlaceholder: "Nama kamu",
+    namePlaceholder: "Nama lengkap kamu",
     emailPlaceholder: "kamu@perusahaan.com",
-    detailsPlaceholder: "Ceritakan proyek kamu...",
+    detailsPlaceholder: "Jelaskan kebutuhan kamu...",
     button: "Kirim Pesan",
     sending: "Mengirim...",
-    success: "Pesan berhasil terkirim.",
-    error: "Pesan gagal dikirim. Silakan coba lagi.",
+    success: "Telegram berhasil dikirim.",
+    error: "Pengiriman gagal. Silakan coba lagi.",
   },
 };
 
@@ -101,17 +101,18 @@ export default function Contact({ lang }: ContactProps) {
 
   return (
     <section id="contact" className="editorial-container py-14 section-rule">
-      <div className="grid gap-10 md:grid-cols-[0.8fr,1.2fr]">
+      <div className="grid gap-8 md:grid-cols-[0.85fr,1.15fr]">
         <div data-reveal>
-          <p className="text-xs uppercase tracking-[0.16em] text-[var(--ink-soft)]">Open Correspondence</p>
-          <h2 className="editorial-title mt-3 text-3xl md:text-5xl">{t.heading}</h2>
-          <p className="mt-5 max-w-xl text-base leading-relaxed text-[var(--ink-soft)]">{t.description}</p>
+          <p className="newspaper-label">Personal Column</p>
+          <h2 className="editorial-title mt-2 text-3xl md:text-5xl">{t.heading}</h2>
+          <p className="newspaper-justify mt-4 max-w-xl text-base leading-relaxed text-[var(--ink-soft)]">{t.description}</p>
+          <p className="mt-4 text-xs uppercase tracking-[0.14em] text-[var(--accent)]">Correspondence accepted via: Email / Social Dispatch</p>
         </div>
 
-        <form data-reveal className="editor-card rounded-xl p-6" onSubmit={handleSubmit}>
+        <form data-reveal className="editor-card ornate-box rounded-sm p-6" onSubmit={handleSubmit}>
           <div className="space-y-4">
             <div>
-              <label className="mb-1.5 block text-sm text-[var(--ink-soft)]" htmlFor="name">
+              <label className="mb-1.5 block text-xs uppercase tracking-[0.14em] text-[var(--ink-soft)]" htmlFor="name">
                 {t.name}
               </label>
               <input
@@ -120,12 +121,12 @@ export default function Contact({ lang }: ContactProps) {
                 type="text"
                 placeholder={t.namePlaceholder}
                 required
-                className="w-full rounded-lg border border-[var(--line)] bg-[rgba(255,255,255,0.7)] px-4 py-3 text-sm text-[var(--ink)] outline-none transition-colors focus:border-[var(--line-strong)]"
+                className="newspaper-input"
               />
             </div>
 
             <div>
-              <label className="mb-1.5 block text-sm text-[var(--ink-soft)]" htmlFor="email">
+              <label className="mb-1.5 block text-xs uppercase tracking-[0.14em] text-[var(--ink-soft)]" htmlFor="email">
                 {t.email}
               </label>
               <input
@@ -134,12 +135,12 @@ export default function Contact({ lang }: ContactProps) {
                 type="email"
                 placeholder={t.emailPlaceholder}
                 required
-                className="w-full rounded-lg border border-[var(--line)] bg-[rgba(255,255,255,0.7)] px-4 py-3 text-sm text-[var(--ink)] outline-none transition-colors focus:border-[var(--line-strong)]"
+                className="newspaper-input"
               />
             </div>
 
             <div>
-              <label className="mb-1.5 block text-sm text-[var(--ink-soft)]" htmlFor="details">
+              <label className="mb-1.5 block text-xs uppercase tracking-[0.14em] text-[var(--ink-soft)]" htmlFor="details">
                 {t.details}
               </label>
               <textarea
@@ -148,23 +149,19 @@ export default function Contact({ lang }: ContactProps) {
                 rows={5}
                 placeholder={t.detailsPlaceholder}
                 required
-                className="w-full resize-none rounded-lg border border-[var(--line)] bg-[rgba(255,255,255,0.7)] px-4 py-3 text-sm text-[var(--ink)] outline-none transition-colors focus:border-[var(--line-strong)]"
+                className="newspaper-input resize-none"
               />
             </div>
 
             <input type="checkbox" name="botcheck" className="hidden" tabIndex={-1} autoComplete="off" />
 
             {status !== "idle" && (
-              <p className={`text-sm ${status === "success" ? "text-green-700" : "text-red-700"}`}>
+              <p className={`text-sm ${status === "success" ? "text-[var(--accent)]" : "text-[var(--ink-soft)]"}`}>
                 {status === "success" ? t.success : t.error}
               </p>
             )}
 
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className="w-full rounded-full border border-[var(--line-strong)] bg-[var(--ink)] px-5 py-3 text-sm text-[var(--paper)] transition-colors hover:bg-[rgba(30,25,19,0.88)] disabled:cursor-not-allowed disabled:opacity-70"
-            >
+            <button type="submit" disabled={isSubmitting} className="stamp-btn stamp-btn-solid w-full justify-center">
               {isSubmitting ? t.sending : t.button}
             </button>
           </div>
@@ -173,3 +170,4 @@ export default function Contact({ lang }: ContactProps) {
     </section>
   );
 }
+

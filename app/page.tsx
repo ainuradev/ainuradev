@@ -1,10 +1,11 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState } from "react";
 import About from "./components/About";
 import Contact from "./components/Contact";
+import FAQ from "./components/FAQ";
 import Hero from "./components/hero";
-import Navbar from "./components/navbar";
+import Masthead from "./components/Masthead";
 import Pricing from "./components/Pricing";
 import Process from "./components/Process";
 import Services from "./components/Services";
@@ -84,24 +85,24 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="page-paper min-h-screen selection:bg-[rgba(30,25,19,0.14)]">
-      <Navbar lang={lang} setLang={setLang} />
-      <Hero lang={lang} />
-      <About lang={lang} />
-      <Services lang={lang} />
-      <Process lang={lang} />
-      <Works lang={lang} />
-      <TechStack lang={lang} />
-      <Pricing lang={lang} />
-      <Contact lang={lang} />
+    <main className="page-paper min-h-screen selection:bg-[rgba(108,21,21,0.24)]">
+      <section className="editorial-container py-8 lg:py-10">
+        <Masthead lang={lang} setLang={setLang} />
+        <Hero lang={lang} />
+        <About lang={lang} />
+        <Services lang={lang} />
+        <Process lang={lang} />
+        <Works lang={lang} />
+        <TechStack lang={lang} />
+        <Pricing lang={lang} />
+        <FAQ lang={lang} />
+        <Contact lang={lang} />
+        <footer className="section-rule mt-10 py-10 text-center lg:text-left">
+          <p className="text-sm text-[var(--ink-soft)]">Published by Ainura Dev Studios | (c) 2026</p>
+        </footer>
+      </section>
       <WhatsappFloat />
-      <footer className="section-rule mt-10 py-10 text-center">
-        <p className="text-sm text-[var(--ink-soft)]">
-          {lang === "en"
-            ? "© 2026 AINURA DEV."
-            : "© 2026 AINURA DEV."}
-        </p>
-      </footer>
     </main>
   );
 }
+
