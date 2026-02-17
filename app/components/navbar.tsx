@@ -58,16 +58,16 @@ export default function Navbar({ lang, setLang }: NavbarProps) {
 
   return (
     <header className="sticky top-0 z-50 border-b border-[var(--line)] bg-[rgba(10,25,47,0.84)] backdrop-blur-md">
-      <div className="editorial-container relative py-3">
-        <div className="grid items-center gap-4 md:grid-cols-[1fr_auto_1fr]">
-          <div className="hidden items-center gap-2 md:flex">
+      <div className="editorial-container relative py-2">
+        <div className="grid items-center gap-3 md:grid-cols-[1fr_auto_1fr]">
+          <div className="hidden items-center gap-1.5 md:flex">
             {socials.map((social) => (
               <a
                 key={social.label}
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-[var(--line)] text-xs text-[var(--ink-soft)] transition-colors hover:border-[var(--line-strong)] hover:text-[#64ffda]"
+                className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-[var(--line)] text-xs text-[var(--ink-soft)] transition-colors hover:border-[var(--line-strong)] hover:text-[#64ffda]"
                 aria-label={social.label}
                 title={social.label}
               >
@@ -78,17 +78,17 @@ export default function Navbar({ lang, setLang }: NavbarProps) {
 
           <a
             href="#"
-            className="editorial-title justify-self-start pr-12 text-left text-2xl tracking-tight text-[var(--ink)] md:justify-self-auto md:pr-0 md:text-center md:text-3xl"
+            className="editorial-title justify-self-start pr-10 text-left text-xl tracking-tight text-[var(--ink)] md:justify-self-auto md:pr-0 md:text-center md:text-2xl"
           >
             AINURA DEV
           </a>
 
           <div className="hidden justify-end md:flex">
-            <div className="inline-flex items-center rounded-full border border-[var(--line)] p-1">
+            <div className="inline-flex items-center rounded-full border border-[var(--line)] p-0.5">
               <button
                 type="button"
                 onClick={() => setLang("en")}
-                className={`rounded-full px-3 py-1 text-xs transition-colors ${
+                className={`rounded-full px-2.5 py-0.5 text-[0.7rem] transition-colors ${
                   lang === "en" ? "bg-[#64ffda] text-[#0a192f]" : "text-[var(--ink)]"
                 }`}
               >
@@ -97,7 +97,7 @@ export default function Navbar({ lang, setLang }: NavbarProps) {
               <button
                 type="button"
                 onClick={() => setLang("id")}
-                className={`rounded-full px-3 py-1 text-xs transition-colors ${
+                className={`rounded-full px-2.5 py-0.5 text-[0.7rem] transition-colors ${
                   lang === "id" ? "bg-[#64ffda] text-[#0a192f]" : "text-[var(--ink)]"
                 }`}
               >
@@ -109,7 +109,7 @@ export default function Navbar({ lang, setLang }: NavbarProps) {
           <button
             type="button"
             onClick={() => setOpen((value) => !value)}
-            className="absolute right-6 top-3.5 inline-flex h-10 w-10 items-center justify-center rounded-md border border-[var(--line-strong)] bg-[rgba(17,34,64,0.88)] p-0 text-[var(--ink)] md:hidden"
+            className="absolute right-4 top-2.5 inline-flex h-8 w-8 items-center justify-center rounded-md border border-[var(--line-strong)] bg-[rgba(17,34,64,0.88)] p-0 text-xs text-[var(--ink)] md:hidden"
             aria-label="Toggle menu"
             aria-expanded={open}
           >
@@ -117,7 +117,7 @@ export default function Navbar({ lang, setLang }: NavbarProps) {
           </button>
         </div>
 
-        <div className="mt-3 hidden items-center justify-center gap-7 border-t border-[var(--line)] pt-3 text-sm uppercase tracking-[0.18em] md:flex">
+        <div className="mt-2 hidden items-center justify-center gap-5 border-t border-[var(--line)] pt-2 text-xs uppercase tracking-[0.16em] md:flex">
           {menu[lang].map((item) => (
             <a key={item.href} href={item.href} className="text-[var(--ink-soft)] transition-colors hover:text-[#64ffda]">
               {item.label}
@@ -126,30 +126,30 @@ export default function Navbar({ lang, setLang }: NavbarProps) {
         </div>
 
         {open && (
-          <div className="mt-3 space-y-2 border-t border-[var(--line)] pt-3 md:hidden">
+          <div className="mt-2 space-y-1.5 border-t border-[var(--line)] pt-2 md:hidden">
             {menu[lang].map((item) => (
               <a
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="block rounded-lg px-3 py-2 text-sm text-[var(--ink-soft)] transition-colors hover:bg-[rgba(100,255,218,0.1)] hover:text-[#64ffda]"
+                className="block rounded-lg px-3 py-1.5 text-sm text-[var(--ink-soft)] transition-colors hover:bg-[rgba(100,255,218,0.1)] hover:text-[#64ffda]"
               >
                 {item.label}
               </a>
             ))}
-            <div className="flex items-center justify-between px-3 pt-2">
-              <div className="inline-flex items-center rounded-full border border-[var(--line)] p-1">
+            <div className="flex items-center justify-between px-3 pt-1.5">
+              <div className="inline-flex items-center rounded-full border border-[var(--line)] p-0.5">
                 <button
                   type="button"
                   onClick={() => setLang("en")}
-                  className={`rounded-full px-3 py-1 text-xs ${lang === "en" ? "bg-[#64ffda] text-[#0a192f]" : "text-[var(--ink)]"}`}
+                  className={`rounded-full px-2.5 py-0.5 text-[0.7rem] ${lang === "en" ? "bg-[#64ffda] text-[#0a192f]" : "text-[var(--ink)]"}`}
                 >
                   EN
                 </button>
                 <button
                   type="button"
                   onClick={() => setLang("id")}
-                  className={`rounded-full px-3 py-1 text-xs ${lang === "id" ? "bg-[#64ffda] text-[#0a192f]" : "text-[var(--ink)]"}`}
+                  className={`rounded-full px-2.5 py-0.5 text-[0.7rem] ${lang === "id" ? "bg-[#64ffda] text-[#0a192f]" : "text-[var(--ink)]"}`}
                 >
                   ID
                 </button>
@@ -161,7 +161,7 @@ export default function Navbar({ lang, setLang }: NavbarProps) {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-[var(--line)] text-xs text-[var(--ink-soft)]"
+                    className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-[var(--line)] text-xs text-[var(--ink-soft)]"
                     aria-label={social.label}
                     title={social.label}
                   >

@@ -1,6 +1,5 @@
 ﻿"use client";
 
-import { useEffect, useMemo, useState } from "react";
 import type { Lang } from "../page";
 
 type HeroProps = {
@@ -36,47 +35,6 @@ const copy = {
 
 export default function Hero({ lang }: HeroProps) {
   const t = copy[lang];
-  const headingChars = useMemo(() => Array.from(t.heading), [t.heading]);
-  const prefersReducedMotion =
-    typeof window !== "undefined" &&
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const [typedLength, setTypedLength] = useState(0);
-  const [isDeleting, setIsDeleting] = useState(false);
-
-  useEffect(() => {
-    if (prefersReducedMotion) return;
-
-    let timeoutDelay = isDeleting ? 22 : 36;
-
-    if (!isDeleting && typedLength === headingChars.length) {
-      timeoutDelay = 1300;
-    } else if (isDeleting && typedLength === 0) {
-      timeoutDelay = 420;
-    }
-
-    const timeout = window.setTimeout(() => {
-      if (!isDeleting && typedLength < headingChars.length) {
-        setTypedLength((prev) => prev + 1);
-        return;
-      }
-
-      if (!isDeleting && typedLength === headingChars.length) {
-        setIsDeleting(true);
-        return;
-      }
-
-      if (isDeleting && typedLength > 0) {
-        setTypedLength((prev) => prev - 1);
-        return;
-      }
-
-      if (isDeleting && typedLength === 0) {
-        setIsDeleting(false);
-      }
-    }, timeoutDelay);
-
-    return () => window.clearTimeout(timeout);
-  }, [headingChars.length, isDeleting, prefersReducedMotion, typedLength]);
 
   return (
     <section className="editorial-container py-10 md:py-14">
@@ -89,11 +47,7 @@ export default function Hero({ lang }: HeroProps) {
             </p>
             <h2 className="mt-4 text-sm uppercase tracking-[0.2em] text-[var(--ink-soft)]">Front Page Headline</h2>
             <h1 className="editorial-title mt-3 max-w-4xl text-4xl leading-[1.06] md:text-7xl">
-              <span>{headingChars.slice(0, prefersReducedMotion ? headingChars.length : typedLength).join("")}</span>
-              <span
-                aria-hidden
-                className="ml-1 inline-block h-[0.95em] w-[0.08em] animate-pulse bg-[var(--accent)] align-[-0.08em]"
-              />
+              {t.heading}
             </h1>
             <p className="mt-4 max-w-2xl text-lg italic text-[var(--ink-soft)]">{t.subheading}</p>
             <p className="newspaper-justify mt-4 max-w-3xl text-[1.01rem] leading-relaxed text-[var(--ink-soft)]">
