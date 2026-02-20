@@ -19,13 +19,13 @@ const copy = {
     intro: "Investigative stories from digital products built for speed, stability, and measurable growth.",
     projects: [
       {
-        title: "Pesantren Idrisiyyah Website",
+        title: "HeavenTrip Umrah Platform",
         date: "Published: Feb 2026",
         stack: ["Next.js", "Tailwind CSS", "Vercel"],
         description:
-          "Built a modern profile and information website for Pesantren Idrisiyyah with responsive layout and clear content structure.",
-        link: "https://pesantren-idrisiyyah.vercel.app/",
-        thumbnail: "https://image.thum.io/get/width/1200/https://pesantren-idrisiyyah.vercel.app/",
+          "Built a modern Umrah travel landing page for HeavenTrip with strong visual hierarchy, clear package information, and responsive conversion-focused layout.",
+        link: "https://heaventrip.vercel.app/",
+        thumbnail: "/works/heaventrip.png",
       },
       {
         title: "Commerce Platform Rebuild",
@@ -66,13 +66,13 @@ const copy = {
     intro: "Laporan proyek digital yang dibangun untuk kecepatan, stabilitas, dan pertumbuhan terukur.",
     projects: [
       {
-        title: "Website Pesantren Idrisiyyah",
+        title: "Platform Umrah HeavenTrip",
         date: "Terbit: Feb 2026",
         stack: ["Next.js", "Tailwind CSS", "Vercel"],
         description:
-          "Membangun website profil dan informasi Pesantren Idrisiyyah dengan layout responsif dan struktur konten yang jelas.",
-        link: "https://pesantren-idrisiyyah.vercel.app/",
-        thumbnail: "../image/pesantren.png",
+          "Membangun landing page travel Umrah HeavenTrip dengan hierarki visual yang kuat, informasi paket yang jelas, dan layout responsif berorientasi konversi.",
+        link: "https://heaventrip.vercel.app/",
+        thumbnail: "/works/heaventrip.png",
       },
       {
         title: "Rebuild Platform E-Commerce",

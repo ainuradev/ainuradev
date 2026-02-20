@@ -57,8 +57,8 @@ export default function Navbar({ lang, setLang }: NavbarProps) {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[var(--line)] bg-[rgba(10,25,47,0.84)] backdrop-blur-md">
-      <div className="editorial-container relative py-2">
+    <header className="sticky top-2 z-50 mx-3 rounded-xl border border-[var(--line)] bg-[rgba(10,25,47,0.82)] shadow-[0_10px_26px_rgba(2,12,27,0.24)] backdrop-blur-md md:top-0 md:mx-0 md:rounded-none md:border-x-0 md:border-t-0 md:shadow-none">
+      <div className="editorial-container relative py-1.5 md:py-2">
         <div className="grid items-center gap-3 md:grid-cols-[1fr_auto_1fr]">
           <div className="hidden items-center gap-1.5 md:flex">
             {socials.map((social) => (
@@ -78,7 +78,7 @@ export default function Navbar({ lang, setLang }: NavbarProps) {
 
           <a
             href="#"
-            className="editorial-title justify-self-start pr-10 text-left text-xl tracking-tight text-[var(--ink)] md:justify-self-auto md:pr-0 md:text-center md:text-2xl"
+            className="editorial-title justify-self-start pr-10 text-left text-lg tracking-tight text-[var(--ink)] md:justify-self-auto md:pr-0 md:text-center md:text-2xl"
           >
             AINURA DEV
           </a>
@@ -109,7 +109,7 @@ export default function Navbar({ lang, setLang }: NavbarProps) {
           <button
             type="button"
             onClick={() => setOpen((value) => !value)}
-            className="absolute right-4 top-2.5 inline-flex h-8 w-8 items-center justify-center rounded-md border border-[var(--line-strong)] bg-[rgba(17,34,64,0.88)] p-0 text-xs text-[var(--ink)] md:hidden"
+            className="absolute right-4 top-1.5 inline-flex h-8 w-8 items-center justify-center rounded-md border border-[var(--line-strong)] bg-[rgba(17,34,64,0.9)] p-0 text-xs text-[var(--ink)] md:hidden"
             aria-label="Toggle menu"
             aria-expanded={open}
           >
@@ -126,7 +126,7 @@ export default function Navbar({ lang, setLang }: NavbarProps) {
         </div>
 
         {open && (
-          <div className="mt-2 space-y-1.5 border-t border-[var(--line)] pt-2 md:hidden">
+          <div className="mt-2 space-y-1.5 border-t border-[var(--line)] pb-1 pt-2 md:hidden">
             {menu[lang].map((item) => (
               <a
                 key={item.href}
