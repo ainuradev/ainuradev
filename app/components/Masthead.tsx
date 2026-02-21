@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 import type { Lang } from "../page";
@@ -38,7 +38,8 @@ export default function Masthead({ lang, setLang }: MastheadProps) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="masthead sticky top-0 z-40 mb-8 bg-[var(--paper)]/95 backdrop-blur-[2px]">
+    <>
+    <header className="mb-8 bg-[var(--paper)]/95 backdrop-blur-[2px]">
       <div className="masthead-inner">
         <p className="masthead-kicker">EST. 2024</p>
         <h1 className="masthead-title">AINURA DEV</h1>
@@ -83,5 +84,16 @@ export default function Masthead({ lang, setLang }: MastheadProps) {
         ))}
       </nav>
     </header>
+<button
+  type="button"
+  onClick={() => setMenuOpen((prev) => !prev)}
+  className="fixed bottom-6 left-6 z-50 flex h-12 w-12 items-center justify-center rounded-full border-2 border-[var(--accent)] bg-[var(--paper)] shadow-[0_0_15px_rgba(100,255,218,0.4)] md:hidden"
+>
+  <div className="relative h-6 w-6">
+    <span className={`absolute top-1/2 block h-0.5 w-6 -translate-y-1/2 bg-[var(--accent)] transition-all duration-300 ${menuOpen ? "rotate-45" : ""}`}></span>
+    <span className={`absolute left-1/2 block h-6 w-0.5 -translate-x-1/2 bg-[var(--accent)] transition-all duration-300 ${menuOpen ? "rotate-90" : ""}`}></span>
+  </div>
+</button>
+</>
   );
 }
