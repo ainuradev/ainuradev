@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useEffect, useState } from "react";
 import About from "./components/About";
@@ -21,8 +21,7 @@ export default function Home() {
   useEffect(() => {
     const elements = document.querySelectorAll<HTMLElement>("[data-reveal]");
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const isMobileViewport = window.matchMedia("(max-width: 768px)").matches;
-    const enableParallax = isMobileViewport && !prefersReducedMotion;
+    if (prefersReducedMotion) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -40,69 +39,50 @@ export default function Home() {
       observer.observe(element);
     });
 
-    let frameId = 0;
-
-    const updateParallax = () => {
-      frameId = 0;
-
-      if (!enableParallax) {
-        elements.forEach((element) => {
-          element.style.setProperty("--parallax-offset", "0px");
-        });
-        return;
-      }
-
-      const viewportCenter = window.innerHeight * 0.5;
-      elements.forEach((element) => {
-        const rect = element.getBoundingClientRect();
-        const elementCenter = rect.top + rect.height * 0.5;
-        const distance = (elementCenter - viewportCenter) / window.innerHeight;
-        const offset = Math.max(-18, Math.min(18, distance * -26));
-        element.style.setProperty("--parallax-offset", `${offset.toFixed(2)}px`);
-      });
-    };
-
-    const requestParallaxUpdate = () => {
-      if (frameId) return;
-      frameId = window.requestAnimationFrame(updateParallax);
-    };
-
-    updateParallax();
-    window.addEventListener("scroll", requestParallaxUpdate, { passive: true });
-    window.addEventListener("resize", requestParallaxUpdate);
-
-    return () => {
-      observer.disconnect();
-      window.removeEventListener("scroll", requestParallaxUpdate);
-      window.removeEventListener("resize", requestParallaxUpdate);
-      if (frameId) {
-        window.cancelAnimationFrame(frameId);
-      }
-      elements.forEach((element) => {
-        element.style.removeProperty("--parallax-offset");
-      });
-    };
+    return () => observer.disconnect();
   }, []);
 
   return (
-    <main className="page-paper min-h-screen selection:bg-[rgba(108,21,21,0.24)]">
-      <section className="editorial-container py-8 lg:py-10">
+    <main className="page-paper min-h-screen selection:bg-[rgba(0,255,209,0.24)] selection:text-[#04070b]">
+      <section className="editorial-container py-6 md:py-8">
         <Masthead lang={lang} setLang={setLang} />
-        <Hero lang={lang} />
-        <About lang={lang} />
-        <Services lang={lang} />
-        <Process lang={lang} />
-        <Works lang={lang} />
-        <TechStack lang={lang} />
-        <Pricing lang={lang} />
-        <FAQ lang={lang} />
-        <Contact lang={lang} />
-        <footer className="section-rule mt-10 py-10 text-center lg:text-left">
-          <p className="text-sm text-[var(--ink-soft)]">Published by Ainura Dev Studios | (c) 2026</p>
+
+        <div className="bento-hero">
+          <Hero lang={lang} />
+        </div>
+
+        <div className="bento-grid mt-4">
+          <div className="bento-item glass-card col-span-12 lg:col-span-7" data-reveal>
+            <About lang={lang} />
+          </div>
+          <div className="bento-item glass-card col-span-12 lg:col-span-5" data-reveal>
+            <Services lang={lang} />
+          </div>
+          <div className="bento-item glass-card col-span-12 lg:col-span-8" data-reveal>
+            <Works lang={lang} />
+          </div>
+          <div className="bento-item glass-card col-span-12 lg:col-span-4" data-reveal>
+            <Process lang={lang} />
+          </div>
+          <div className="bento-item glass-card col-span-12 lg:col-span-4" data-reveal>
+            <TechStack lang={lang} />
+          </div>
+          <div className="bento-item glass-card col-span-12 lg:col-span-4" data-reveal>
+            <Pricing lang={lang} />
+          </div>
+          <div className="bento-item glass-card col-span-12 lg:col-span-4" data-reveal>
+            <FAQ lang={lang} />
+          </div>
+          <div className="bento-item glass-card col-span-12 lg:col-span-8" data-reveal>
+            <Contact lang={lang} />
+          </div>
+        </div>
+
+        <footer className="mt-8 rounded-2xl border border-[var(--line)] px-5 py-6 text-center text-sm text-[var(--ink-soft)]">
+          Domain Registry: Ainura Dev Studios | (c) 2026
         </footer>
       </section>
       <WhatsappFloat />
     </main>
   );
 }
-

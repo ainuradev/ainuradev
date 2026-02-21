@@ -1,21 +1,17 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Source_Sans_3 } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
 
-const editorialSerif = Playfair_Display({
-  variable: "--font-editorial-serif",
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
   subsets: ["latin"],
-});
-
-const editorialSans = Source_Sans_3({
-  variable: "--font-editorial-sans",
-  subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "AINURA DEV | Scalable Digital Products",
+  title: "AINURA DEV | Domain Expansion Portfolio",
   description:
-    "AINURA DEV is a web developer and full-stack engineer building scalable, performance-driven digital products with clean architecture.",
+    "Modern Bento Grid portfolio with JJK-inspired visuals, cursed-technique showcases, and scalable engineering craft.",
 };
 
 export default function RootLayout({
@@ -25,9 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${editorialSerif.variable} ${editorialSans.variable} antialiased`}
-      >
+      <body className={`${montserrat.variable} antialiased`}>
         {children}
       </body>
     </html>
