@@ -52,28 +52,28 @@ export default function Home() {
         </div>
 
         <div className="bento-grid mt-4">
+          <div className="bento-item glass-card col-span-12 xl:col-span-8" data-reveal>
+            <Works lang={lang} />
+          </div>
+          <div className="bento-item glass-card col-span-12 xl:col-span-4" data-reveal>
+            <Services lang={lang} />
+          </div>
           <div className="bento-item glass-card col-span-12 lg:col-span-7" data-reveal>
             <About lang={lang} />
           </div>
           <div className="bento-item glass-card col-span-12 lg:col-span-5" data-reveal>
-            <Services lang={lang} />
-          </div>
-          <div className="bento-item glass-card col-span-12 lg:col-span-8" data-reveal>
-            <Works lang={lang} />
-          </div>
-          <div className="bento-item glass-card col-span-12 lg:col-span-4" data-reveal>
             <Process lang={lang} />
           </div>
-          <div className="bento-item glass-card col-span-12 lg:col-span-4" data-reveal>
+          <div className="bento-item glass-card col-span-12 xl:col-span-5" data-reveal>
             <TechStack lang={lang} />
           </div>
-          <div className="bento-item glass-card col-span-12 lg:col-span-4" data-reveal>
+          <div className="bento-item glass-card col-span-12 xl:col-span-7" data-reveal>
             <Pricing lang={lang} />
           </div>
-          <div className="bento-item glass-card col-span-12 lg:col-span-4" data-reveal>
+          <div className="bento-item glass-card col-span-12 xl:col-span-5" data-reveal>
             <FAQ lang={lang} />
           </div>
-          <div className="bento-item glass-card col-span-12 lg:col-span-8" data-reveal>
+          <div className="bento-item glass-card col-span-12 xl:col-span-7" data-reveal>
             <Contact lang={lang} />
           </div>
         </div>

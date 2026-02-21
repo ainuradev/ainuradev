@@ -92,23 +92,23 @@ export default function Pricing({ lang }: PricingProps) {
     <section id="pricing" className="editorial-container py-14 section-rule">
       <div className="max-w-2xl" data-reveal>
         <p className="newspaper-label">Rates Ledger</p>
-        <h2 className="editorial-title mt-2 text-3xl md:text-5xl">{t.heading}</h2>
+        <h2 className="editorial-title mt-2 text-3xl md:text-4xl">{t.heading}</h2>
       </div>
-      <div className="mt-8 grid gap-5 md:grid-cols-3">
+      <div className="mt-8 grid gap-5 sm:grid-cols-2 2xl:grid-cols-3">
         {t.plans.map((plan) => (
           <article
             key={plan.name}
             data-reveal
-            className={`ornate-box rounded-sm border p-6 transition-all duration-300 ${
+            className={`ornate-box rounded-xl border p-5 transition-all duration-300 ${
               plan.featured ? "border-[var(--line-strong)] bg-[rgba(139,47,47,0.06)]" : "editor-card"
             }`}
           >
-            <h3 className="editorial-title text-2xl uppercase">{plan.name}</h3>
+            <h3 className="editorial-title text-xl uppercase">{plan.name}</h3>
             <p className="mt-2 text-sm text-[var(--ink-soft)]">{plan.description}</p>
-            <p className="editorial-title mt-5 text-4xl">{plan.price}</p>
+            <p className="editorial-title mt-4 text-4xl leading-none">{plan.price}</p>
             <ul className="mt-5 space-y-2 text-sm text-[var(--ink-soft)]">
               {plan.features.map((feature) => (
-                <li key={feature}>? {feature}</li>
+                <li key={feature}>- {feature}</li>
               ))}
             </ul>
             <a href="#contact" className="stamp-btn mt-5 inline-block text-[0.68rem]">

@@ -62,7 +62,7 @@ export default function FAQ({ lang }: FaqProps) {
     <section id="faq" className="editorial-container py-14 section-rule">
       <div className="max-w-3xl" data-reveal>
         <p className="newspaper-label">Letters Column</p>
-        <h2 className="editorial-title mt-2 text-3xl md:text-5xl">{t.heading}</h2>
+        <h2 className="editorial-title mt-2 text-3xl md:text-4xl">{t.heading}</h2>
       </div>
 
       <div className="mt-8 space-y-3">
@@ -76,8 +76,8 @@ export default function FAQ({ lang }: FaqProps) {
                 className="flex w-full items-start justify-between gap-4 px-5 py-4 text-left"
                 aria-expanded={open}
               >
-                <span className="font-semibold uppercase tracking-[0.06em]">{item.q}</span>
-                <span className="text-[var(--accent)]">{open ? "âˆ’" : "+"}</span>
+                <span className="text-[0.92rem] font-semibold uppercase tracking-[0.04em]">{item.q}</span>
+                <span className="text-[var(--accent)]">{open ? "-" : "+"}</span>
               </button>
               {open && (
                 <div className="border-t border-dashed border-[var(--line)] px-5 py-4 text-sm leading-relaxed text-[var(--ink-soft)]">

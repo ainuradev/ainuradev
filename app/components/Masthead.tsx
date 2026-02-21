@@ -38,45 +38,47 @@ export default function Masthead({ lang, setLang }: MastheadProps) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="masthead glass-card mb-5">
-      <div className="masthead-inner">
-        <p className="masthead-kicker">EST. 2024</p>
-        <h1 className="masthead-title">ainura dev</h1>
-        <p className="masthead-kicker">{t.edition}</p>
-      </div>
+    <>
+      <header className="masthead glass-card mb-5">
+        <div className="masthead-inner">
+          <p className="masthead-kicker">EST. 2024</p>
+          <h1 className="masthead-title">ainura dev</h1>
+          <p className="masthead-kicker">{t.edition}</p>
+        </div>
 
-      <div className="masthead-meta">
-        <span>{dateLabel}</span>
-        <span className="inline-flex items-center gap-2">
-          <span className="hidden md:inline">DOMAIN STATUS: STABLE</span>
-          <span className="inline-flex items-center rounded-full border border-[var(--line)] p-0.5">
-            <button
-              type="button"
-              onClick={() => setLang("en")}
-              className={`rounded-full px-2 py-0.5 text-[0.62rem] ${lang === "en" ? "bg-[var(--accent)] text-[#06080d]" : "text-[var(--ink)]"}`}
-            >
-              EN
-            </button>
-            <button
-              type="button"
-              onClick={() => setLang("id")}
-              className={`rounded-full px-2 py-0.5 text-[0.62rem] ${lang === "id" ? "bg-[var(--accent)] text-[#06080d]" : "text-[var(--ink)]"}`}
-            >
-              ID
-            </button>
+        <div className="masthead-meta">
+          <span>{dateLabel}</span>
+          <span className="inline-flex items-center gap-2">
+            <span className="hidden md:inline">DOMAIN STATUS: STABLE</span>
+            <span className="inline-flex items-center rounded-full border border-[var(--line)] p-0.5">
+              <button
+                type="button"
+                onClick={() => setLang("en")}
+                className={`rounded-full px-2 py-0.5 text-[0.62rem] ${lang === "en" ? "bg-[var(--accent)] text-[#06080d]" : "text-[var(--ink)]"}`}
+              >
+                EN
+              </button>
+              <button
+                type="button"
+                onClick={() => setLang("id")}
+                className={`rounded-full px-2 py-0.5 text-[0.62rem] ${lang === "id" ? "bg-[var(--accent)] text-[#06080d]" : "text-[var(--ink)]"}`}
+              >
+                ID
+              </button>
+            </span>
           </span>
-        </span>
-      </div>
+        </div>
 
-      <nav className="masthead-nav hidden md:flex">
-        {t.tabs.map((tab, index) => (
-          <a key={tab} href={t.tabLinks[index]} className="masthead-tab">
-            {tab}
-          </a>
-        ))}
-      </nav>
+        <nav className="masthead-nav hidden md:flex">
+          {t.tabs.map((tab, index) => (
+            <a key={tab} href={t.tabLinks[index]} className="masthead-tab">
+              {tab}
+            </a>
+          ))}
+        </nav>
+      </header>
 
-      <div className="fixed right-5 top-4 z-[120] md:hidden">
+      <div className="fixed right-5 top-4 z-[130] md:hidden">
         <button
           type="button"
           onClick={() => setMenuOpen((prev) => !prev)}
@@ -122,6 +124,6 @@ export default function Masthead({ lang, setLang }: MastheadProps) {
           ))}
         </nav>
       </div>
-    </header>
+    </>
   );
 }

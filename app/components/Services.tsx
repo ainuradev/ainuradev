@@ -66,18 +66,18 @@ export default function Services({ lang }: ServicesProps) {
     <section id="services" className="editorial-container py-14 section-rule">
       <div className="max-w-3xl" data-reveal>
         <p className="newspaper-label">Classifieds & Features</p>
-        <h2 className="editorial-title mt-2 text-3xl md:text-5xl">{t.heading}</h2>
+        <h2 className="editorial-title mt-2 text-3xl md:text-4xl">{t.heading}</h2>
         <p className="newspaper-justify mt-4 text-base text-[var(--ink-soft)]">{t.intro}</p>
       </div>
 
-      <div className="mt-8 grid gap-4 sm:grid-cols-2">
+      <div className="mt-8 grid gap-4 2xl:grid-cols-2">
         {t.items.map((service) => (
-          <article key={service.title} data-reveal className="editor-card ornate-box rounded-sm p-5">
+          <article key={service.title} data-reveal className="editor-card ornate-box rounded-xl p-5">
             <p className="text-[0.67rem] uppercase tracking-[0.16em] text-[var(--accent)]">Inquire Within</p>
-            <h3 className="editorial-title mt-2 text-2xl uppercase">{service.title}</h3>
+            <h3 className="editorial-title mt-2 text-xl uppercase">{service.title}</h3>
             <p className="newspaper-justify mt-3 text-sm leading-relaxed text-[var(--ink-soft)]">{service.description}</p>
             <a href="#contact" className="mt-4 inline-block text-xs uppercase tracking-[0.16em] text-[var(--accent)]">
-              Dispatch Inquiry ?
+              Dispatch Inquiry
             </a>
           </article>
         ))}

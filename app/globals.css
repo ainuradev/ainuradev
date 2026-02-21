@@ -244,6 +244,20 @@ body::before {
 .bento-item {
   border-radius: 1rem;
   padding: 0.9rem;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.bento-item .editorial-title,
+.bento-item p,
+.bento-item li,
+.bento-item span,
+.bento-item a,
+.bento-item h1,
+.bento-item h2,
+.bento-item h3 {
+  overflow-wrap: anywhere;
+  word-break: normal;
 }
 
 .bento-item .editorial-container {
