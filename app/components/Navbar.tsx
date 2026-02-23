@@ -73,7 +73,7 @@ export default function Navbar() {
           <div className="flex items-center gap-2">
             <div className="w-11 h-11 rounded-xl overflow-hidden flex-shrink-0 border border-white/10">
               <Image
-                src="/avatar.jpg"
+                src="/ainura.png"
                 alt="Ainura"
                 width={44}
                 height={44}
