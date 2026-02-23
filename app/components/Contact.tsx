@@ -5,6 +5,7 @@ import { motion, useInView } from "framer-motion";
 import { useLanguage } from "./LanguageProvider";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
+const WEB3FORMS_ACCESS_KEY = "0a05cbba-155e-4125-a77f-65eba14c1672";
 
 const socials = [
   {
@@ -84,9 +85,33 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("sending");
-    // Simulasi kirim â€” ganti dengan API call lo (Resend, EmailJS, dsb)
-    await new Promise((r) => setTimeout(r, 1500));
-    setStatus("sent");
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: "New Portfolio Contact Message",
+          from_name: form.name,
+          name: form.name,
+          email: form.email,
+          message: form.message,
+          replyto: form.email,
+        }),
+      });
+
+      const result = await response.json();
+      if (response.ok && result?.success) {
+        setStatus("sent");
+        return;
+      }
+      setStatus("error");
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
@@ -189,6 +214,20 @@ export default function Contact() {
                 <p className="text-base font-semibold mb-2" style={{ color: "var(--text)" }}>
                   {isID ? "Kirim pesan" : "Send a message"}
                 </p>
+                {status === "error" && (
+                  <p
+                    className="text-xs px-3 py-2 rounded-xl"
+                    style={{
+                      color: "#fca5a5",
+                      background: "rgba(239,68,68,0.1)",
+                      border: "1px solid rgba(239,68,68,0.25)",
+                    }}
+                  >
+                    {isID
+                      ? "Gagal mengirim. Coba lagi dalam beberapa saat."
+                      : "Failed to send. Please try again in a moment."}
+                  </p>
+                )}
 
                 {/* Name */}
                 <div className="flex flex-col gap-1.5">
