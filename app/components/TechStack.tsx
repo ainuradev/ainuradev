@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
@@ -91,3 +91,4 @@ export default function TechStack() {
     </section>
   );
 }
+

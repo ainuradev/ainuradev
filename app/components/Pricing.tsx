@@ -22,7 +22,7 @@ const plans = [
       "Core performance and SEO setup",
       "Domain + hosting setup",
       "1 round of revisions",
-      "Delivery in 5â€“7 days",
+      "Delivery in 5-7 days",
     ],
     cta: "Get Started",
     popular: false,
@@ -52,7 +52,7 @@ const plans = [
     label: "Enterprise",
     price: "Let's talk",
     period: "custom scope",
-    description: "Complex products, unique requirements, or long-term partnerships â€” let's figure it out together.",
+    description: "Complex products, unique requirements, or long-term partnerships - let's figure it out together.",
     accent: "#f59e0b",
     accentMuted: "rgba(245,158,11,0.10)",
     accentBorder: "rgba(245,158,11,0.20)",
@@ -154,10 +154,10 @@ export default function Pricing() {
   const [hovered, setHovered] = useState<number | null>(null);
 
   return (
-    <section id="pricing" ref={sectionRef} className="relative px-6 pt-32 pb-32">
+    <section id="pricing" ref={sectionRef} className="relative px-6 pt-20 pb-20">
       <div className="max-w-5xl mx-auto w-full">
 
-        {/* â”€â”€ Label â”€â”€ */}
+        {/* -- Label -- */}
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -165,16 +165,17 @@ export default function Pricing() {
           className="text-xs tracking-[0.2em] uppercase mb-4"
           style={{ color: "var(--accent-light)" }}
         >
+          {isID ? "Investment" : "Investment"}
         </motion.p>
 
-        {/* â”€â”€ Heading â”€â”€ */}
+        {/* -- Heading -- */}
         <div className="mb-16">
           <RevealText delay={0.1}>
             <span
               className="text-[clamp(32px,8vw,72px)] font-black tracking-tighter leading-none"
               style={{ color: "var(--text)" }}
             >
-              Simple,{" "}
+              {isID ? "Paket yang " : "Plans that "}
               <em
                 style={{
                   fontFamily: "Georgia, serif",
@@ -183,14 +184,14 @@ export default function Pricing() {
                   color: "var(--text-muted)",
                 }}
               >
-                transparent
+                {isID ? "jelas" : "scale"}
               </em>{" "}
-              {isID ? "untuk kamu." : "pricing."}
+              {isID ? "dan terukur." : "with your growth."}
             </span>
           </RevealText>
         </div>
 
-        {/* â”€â”€ Cards Grid â”€â”€ */}
+        {/* -- Cards Grid -- */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {plans.map((plan, i) => (
             <motion.div
@@ -372,7 +373,7 @@ export default function Pricing() {
           ))}
         </div>
 
-        {/* â”€â”€ Bottom note â”€â”€ */}
+        {/* -- Bottom note -- */}
         <motion.p
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
@@ -396,6 +397,7 @@ export default function Pricing() {
     </section>
   );
 }
+
 
 
 

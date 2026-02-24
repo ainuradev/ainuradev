@@ -20,7 +20,7 @@ const socials = [
   },
   {
     label: "LinkedIn",
-    handle: "Ainura Dev",
+    handle: "Aditya Nugraha",
     href: "https://linkedin.com/in/Ainuradev",
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -30,7 +30,7 @@ const socials = [
   },
   {
     label: "Instagram",
-    handle: "sepsigmay",
+    handle: "Aditya Nugraha",
     href: "https://instagram.com/sepsigmay",
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -115,10 +115,10 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" ref={sectionRef} className="relative px-6 pt-32 pb-24">
+    <section id="contact" ref={sectionRef} className="relative px-6 pt-20 pb-16">
       <div className="max-w-5xl mx-auto w-full">
 
-        {/* â”€â”€ Label â”€â”€ */}
+        {/* -- Label -- */}
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -126,16 +126,17 @@ export default function Contact() {
           className="text-xs tracking-[0.2em] uppercase mb-4"
           style={{ color: "var(--accent-light)" }}
         >
+          {isID ? "Start a Project" : "Start a Project"}
         </motion.p>
 
-        {/* â”€â”€ Big heading â”€â”€ */}
+        {/* -- Big heading -- */}
         <div className="mb-16">
           <RevealText delay={0.1}>
             <span
               className="text-[clamp(36px,9vw,100px)] font-black tracking-tighter leading-none"
               style={{ color: "var(--text)" }}
             >
-              Let&apos;s{" "}
+              {isID ? "Bangun " : "Build "}
               <em
                 style={{
                   fontFamily: "Georgia, serif",
@@ -144,17 +145,17 @@ export default function Contact() {
                   color: "var(--text-muted)",
                 }}
               >
-                work
+                {isID ? "produk" : "something"}
               </em>{" "}
-              {isID ? "bareng." : "together."}
+              {isID ? "yang menang." : "that wins."}
             </span>
           </RevealText>
         </div>
 
-        {/* â”€â”€ Two column layout â”€â”€ */}
+        {/* -- Two column layout -- */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-          {/* â”€â”€ Left: Form â”€â”€ */}
+          {/* -- Left: Form -- */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -177,7 +178,7 @@ export default function Contact() {
             />
 
             {status === "sent" ? (
-              // â”€â”€ Success state â”€â”€
+              // -- Success state --
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -209,7 +210,7 @@ export default function Contact() {
                 </button>
               </motion.div>
             ) : (
-              // â”€â”€ Form â”€â”€
+              // -- Form --
               <form onSubmit={handleSubmit} className="flex flex-col gap-4">
                 <p className="text-base font-semibold mb-2" style={{ color: "var(--text)" }}>
                   {isID ? "Kirim pesan" : "Send a message"}
@@ -345,7 +346,7 @@ export default function Contact() {
             )}
           </motion.div>
 
-          {/* â”€â”€ Right: Info + Socials â”€â”€ */}
+          {/* -- Right: Info + Socials -- */}
           <div className="flex flex-col gap-4">
 
             {/* Info card */}
@@ -376,19 +377,19 @@ export default function Contact() {
                   }}
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                  {isID ? "Siap untuk project baru" : "Available for projects"}
+                  {isID ? "Siap untuk project baru" : "Available for selected projects"}
                 </div>
                 <h3
                   className="text-xl font-bold mb-2"
                   style={{ color: "var(--text)" }}
                 >
-                  {isID ? "Siap mulai sesuatu?" : "Ready to start something?"}
+                  {isID ? "Siap mulai?" : "Ready to move fast?"}
                 </h3>
                 <p
                   className="text-sm leading-relaxed"
                   style={{ color: "var(--text-muted)" }}
                 >
-                  {isID ? "Mau landing page atau full product, saya terbuka untuk project baru. Biasanya dibalas dalam 24 jam." : "Whether it&apos;s a landing page or a full product â€” I&apos;m open to new projects. Response time is usually within 24 hours."}
+                  {isID ? "Dari landing page sampai full product, saya bantu dari strategy ke execution. Response biasanya kurang dari 24 jam." : "From landing pages to full products, I help teams move from strategy to execution. Typical response time is under 24 hours."}
                 </p>
               </div>
             </motion.div>
@@ -472,7 +473,7 @@ export default function Contact() {
         </div>
       </div>
 
-      {/* â”€â”€ Footer â”€â”€ */}
+      {/* -- Footer -- */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={inView ? { opacity: 1 } : {}}
@@ -483,14 +484,12 @@ export default function Contact() {
         <p className="text-xs" style={{ color: "var(--text-muted)" }}>
           (c) {new Date().getFullYear()} Ainura. {isID ? "Semua hak dilindungi." : "All rights reserved."}
         </p>
-        <p className="text-xs" style={{ color: "var(--text-muted)" }}>
-          {isID ? "Dibuat dengan Next.js · Tailwind CSS · Framer Motion" : "Built with Next.js · Tailwind CSS · Framer Motion"}
-        </p>
       </motion.div>
 
     </section>
   );
 }
+
 
 
 

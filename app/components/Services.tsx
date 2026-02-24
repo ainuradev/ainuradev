@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef, type CSSProperties, type ReactNode } from "react";
 import { motion, useInView } from "framer-motion";
@@ -26,7 +26,7 @@ const services = [
   {
     title: "Web Development",
     description:
-      "Clean, performant code is my foundation. I build full-stack web apps with Next.js, React, and Node.js — optimized for speed, accessibility, and scalability. Every line of code is written with intention.",
+      "Clean, performant code is my foundation. I build full-stack web apps with Next.js, React, and Node.js - optimized for speed, accessibility, and scalability. Every line of code is written with intention.",
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
@@ -56,7 +56,7 @@ const services = [
   {
     title: "SEO & Performance",
     description:
-      "A beautiful website means nothing if no one finds it. I optimize for Core Web Vitals, semantic HTML, and search visibility — ensuring your site loads fast, ranks well, and converts visitors into customers.",
+      "A beautiful website means nothing if no one finds it. I optimize for Core Web Vitals, semantic HTML, and search visibility - ensuring your site loads fast, ranks well, and converts visitors into customers.",
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
@@ -131,10 +131,10 @@ export default function Services() {
   const inView = useInView(sectionRef, { once: true, margin: "-100px" });
 
   return (
-    <section id="services" ref={sectionRef} className="relative px-6 pt-32 pb-0">
+    <section id="services" ref={sectionRef} className="relative px-6 pt-20 pb-6">
       <div className="max-w-3xl mx-auto w-full">
 
-        {/* ── Label ── */}
+        {/* -- Label -- */}
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -144,14 +144,14 @@ export default function Services() {
         >
         </motion.p>
 
-        {/* ── Heading ── */}
+        {/* -- Heading -- */}
         <div className="mb-24">
           <RevealText
             delay={0.1}
             className="text-[clamp(32px,8vw,72px)] font-black tracking-tighter leading-none"
             style={{ color: "var(--text)" } as React.CSSProperties}
           >
-            {isID ? "Apa yang bisa saya " : "What I can "}
+            {isID ? "Eksekusi yang " : "Execution that "}
             <em
               style={{
                 fontFamily: "Georgia, serif",
@@ -160,13 +160,13 @@ export default function Services() {
                 color: "var(--text-muted)",
               }}
             >
-              {isID ? "bantu" : "help"}
+              {isID ? "menggerakkan bisnis" : "moves business"}
             </em>{" "}
-            {isID ? "kerjakan." : "with."}
+            {isID ? "kamu." : "forward."}
           </RevealText>
         </div>
 
-        {/* ── Sticky Stack Cards ── */}
+        {/* -- Sticky Stack Cards -- */}
         <div className="flex flex-col">
           {services.map((service, i) => (
             <div
@@ -185,7 +185,7 @@ export default function Services() {
                 // dan efek sticky stack kerasa
                 className="mb-[30vh]"
               >
-                {/* ── Glass Card ── */}
+                {/* -- Glass Card -- */}
                 <div
                   className="relative overflow-hidden rounded-3xl"
                   style={{
@@ -231,7 +231,7 @@ export default function Services() {
                     {service.number}
                   </div>
 
-                  {/* ── Content ── */}
+                  {/* -- Content -- */}
                   <div className="relative z-10 p-6 md:p-10">
 
                     {/* Icon + number row */}
@@ -331,3 +331,4 @@ export default function Services() {
     </section>
   );
 }
+

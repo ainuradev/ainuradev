@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import { useEffect, useRef } from "react";
@@ -10,9 +10,9 @@ import {
 } from "framer-motion";
 import { useLanguage } from "./LanguageProvider";
 
-// ─── Marquee brand text di background ───────────────
+// --- Marquee brand text di background ---------------
 function BrandMarquee() {
-  const text = "AINURA® ";
+  const text = "AINURA(R) ";
   const repeated = text.repeat(10);
 
   return (
@@ -38,7 +38,7 @@ function BrandMarquee() {
   );
 }
 
-// ─── Tilt Card ───────────────────────────────────────
+// --- Tilt Card ---------------------------------------
 function TiltCard({ isID }: { isID: boolean }) {
   const rawX = useMotionValue(0);
   const rawY = useMotionValue(0);
@@ -118,7 +118,7 @@ function TiltCard({ isID }: { isID: boolean }) {
       transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
       className="relative"
     >
-      {/* Shadow card 1 — sangat subtle */}
+      {/* Shadow card 1 - sangat subtle */}
       <div
         className="absolute inset-0 rounded-3xl"
         style={{
@@ -139,7 +139,7 @@ function TiltCard({ isID }: { isID: boolean }) {
         }}
       />
 
-      {/* Main card — lebih kecil, persis aluro */}
+      {/* Main card - lebih kecil, persis aluro */}
       <div
         className="relative overflow-hidden rounded-3xl"
         style={{
@@ -189,7 +189,7 @@ function TiltCard({ isID }: { isID: boolean }) {
   );
 }
 
-// ─── Hero ─────────────────────────────────────────────
+// --- Hero ---------------------------------------------
 export default function Hero() {
   const { locale } = useLanguage();
   const isID = locale === "id";
@@ -208,7 +208,7 @@ export default function Hero() {
       {/* Brand text marquee di background */}
       <BrandMarquee />
 
-      {/* Vignette — tengah transparan, pinggir gelap */}
+      {/* Vignette - tengah transparan, pinggir gelap */}
       <div
         className="absolute inset-0 z-10 pointer-events-none"
         style={{
@@ -239,3 +239,4 @@ export default function Hero() {
     </section>
   );
 }
+

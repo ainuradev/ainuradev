@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import { useRef, useState } from "react";
@@ -32,7 +32,7 @@ const projects: Project[] = [
     color: "#2f7cf6",
     bg: "linear-gradient(135deg, #071425 0%, #0f2f5f 50%, #2f7cf6 100%)",
     mockupImage: "/heaventrip.png",
-    url: "https://heaventrip.vercel.app/",
+    url: "/projects/heaventrip",
   },
   {
     title: "Nexus Dashboard",
@@ -43,7 +43,7 @@ const projects: Project[] = [
     tags: { en: ["Development", "React"], id: ["Development", "React"] },
     color: "#7c6aff",
     bg: "linear-gradient(135deg, #1e1b4b 0%, #3730a3 50%, #6d28d9 100%)",
-    mockup: "??",
+    mockup: "APP",
     url: "https://nexusdashboard.com",
   },
   {
@@ -55,7 +55,7 @@ const projects: Project[] = [
     tags: { en: ["Web Design", "Next.js"], id: ["Web Design", "Next.js"] },
     color: "#ec4899",
     bg: "linear-gradient(135deg, #831843 0%, #be185d 50%, #ec4899 100%)",
-    mockup: "??",
+    mockup: "SHOP",
     url: "https://bloomcommerce.com",
   },
   {
@@ -67,7 +67,7 @@ const projects: Project[] = [
     tags: { en: ["UI/UX", "Framer"], id: ["UI/UX", "Framer"] },
     color: "#22d3ee",
     bg: "linear-gradient(135deg, #164e63 0%, #0e7490 50%, #22d3ee 100%)",
-    mockup: "??",
+    mockup: "TRIP",
     url: "https://atlastravel.com",
   },
   {
@@ -79,7 +79,7 @@ const projects: Project[] = [
     tags: { en: ["Development", "Design"], id: ["Development", "Design"] },
     color: "#22c55e",
     bg: "linear-gradient(135deg, #14532d 0%, #15803d 50%, #22c55e 100%)",
-    mockup: "??",
+    mockup: "FIN",
     url: "https://verdefinance.com",
   },
   {
@@ -91,7 +91,7 @@ const projects: Project[] = [
     tags: { en: ["Web Design", "CMS"], id: ["Web Design", "CMS"] },
     color: "#f59e0b",
     bg: "linear-gradient(135deg, #78350f 0%, #b45309 50%, #f59e0b 100%)",
-    mockup: "??",
+    mockup: "MEDIA",
     url: "https://pulsemedia.com",
   },
 ];
@@ -141,11 +141,11 @@ export default function Work() {
     exit: (dir: number) => ({ x: dir > 0 ? "-100%" : "100%", opacity: 0, scale: 0.95 }),
   };
 
-  const headingMain = isID ? "Karya" : "Things";
-  const headingEm = isID ? "Pilihan Saya." : "I've Designed.";
+  const headingMain = isID ? "Bukti" : "Proof";
+  const headingEm = isID ? "Hasil Nyata." : "That Converts.";
 
   return (
-    <section id="work" ref={sectionRef} className="relative pt-32 pb-32 overflow-hidden">
+    <section id="work" ref={sectionRef} className="relative pt-20 pb-20 overflow-hidden">
       <div className="max-w-3xl mx-auto w-full px-6">
         <motion.p
           initial={{ opacity: 0, y: 10 }}
@@ -153,7 +153,9 @@ export default function Work() {
           transition={{ duration: 0.6, ease: EASE }}
           className="text-xs tracking-[0.2em] uppercase mb-4"
           style={{ color: "var(--accent-light)" }}
-        />
+        >
+          Selected Case Studies
+        </motion.p>
 
         <div className="mb-16 text-center">
           <RevealText delay={0.1}>
@@ -182,11 +184,11 @@ export default function Work() {
         animate={inView ? { opacity: 1 } : {}}
         transition={{ duration: 0.8, delay: 0.3 }}
         className="relative flex items-center justify-center"
-        style={{ height: "460px" }}
+        style={{ height: "540px" }}
       >
         <div
           className="absolute hidden md:block cursor-pointer"
-          style={{ left: "calc(50% - 440px)", zIndex: 1 }}
+          style={{ left: "calc(50% - 600px)", zIndex: 1 }}
           onClick={() => paginate(-1)}
         >
           <div
@@ -212,7 +214,7 @@ export default function Work() {
           </div>
         </div>
 
-        <div className="absolute z-20 overflow-hidden" style={{ width: "clamp(300px, 52vw, 500px)" }}>
+        <div className="absolute z-20 overflow-hidden" style={{ width: "clamp(340px, 76vw, 720px)" }}>
           <AnimatePresence mode="popLayout" custom={direction}>
             <motion.div
               key={active}
@@ -223,7 +225,12 @@ export default function Work() {
               exit="exit"
               transition={{ duration: 0.45, ease: EASE }}
             >
-              <a href={projects[active].url} target="_blank" rel="noopener noreferrer" className="block group">
+              <a
+                href={projects[active].url}
+                target={projects[active].url.startsWith("http") ? "_blank" : undefined}
+                rel={projects[active].url.startsWith("http") ? "noopener noreferrer" : undefined}
+                className="block group"
+              >
                 <div
                   className="relative overflow-hidden rounded-3xl"
                   style={{
@@ -263,7 +270,7 @@ export default function Work() {
 
                   <div
                     className="relative overflow-hidden flex items-center justify-center"
-                    style={{ height: "clamp(200px, 28vw, 280px)", background: projects[active].bg }}
+                    style={{ height: "clamp(240px, 32vw, 360px)", background: projects[active].bg }}
                   >
                     <div
                       className="absolute inset-0 opacity-60"
@@ -350,7 +357,7 @@ export default function Work() {
 
         <div
           className="absolute hidden md:block cursor-pointer"
-          style={{ left: "calc(50% + 180px)", zIndex: 1 }}
+          style={{ left: "calc(50% + 280px)", zIndex: 1 }}
           onClick={() => paginate(1)}
         >
           <div
@@ -380,7 +387,7 @@ export default function Work() {
           onClick={() => paginate(-1)}
           className="absolute z-30 w-11 h-11 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95"
           style={{
-            left: "clamp(8px, calc(50% - 290px), calc(50% - 290px))",
+            left: "clamp(8px, calc(50% - 410px), calc(50% - 410px))",
             background: projects[active].color,
             boxShadow: `0 0 24px ${projects[active].color}50`,
           }}
@@ -394,7 +401,7 @@ export default function Work() {
           onClick={() => paginate(1)}
           className="absolute z-30 w-11 h-11 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95"
           style={{
-            right: "clamp(8px, calc(50% - 290px), calc(50% - 290px))",
+            right: "clamp(8px, calc(50% - 410px), calc(50% - 410px))",
             background: projects[active].color,
             boxShadow: `0 0 24px ${projects[active].color}50`,
           }}
@@ -426,3 +433,4 @@ export default function Work() {
     </section>
   );
 }
+

@@ -9,7 +9,7 @@ const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 const faqs = [
   {
     q: "What's your typical project timeline?",
-    a: "Landing pages usually take 5â€“7 days. Full-stack projects run in weekly sprints â€” scope and complexity determine the total duration. I'll give you a clear estimate before we start.",
+    a: "Landing pages usually take 5-7 days. Full-stack projects run in weekly sprints - scope and complexity determine the total duration. I'll give you a clear estimate before we start.",
   },
   {
     q: "Do you work with international clients?",
@@ -25,7 +25,7 @@ const faqs = [
   },
   {
     q: "Do you offer ongoing maintenance?",
-    a: "Yes â€” Custom plan clients get ongoing support. For other plans, maintenance can be arranged as a separate retainer. Just reach out and we'll figure out what makes sense.",
+    a: "Yes - Custom plan clients get ongoing support. For other plans, maintenance can be arranged as a separate retainer. Just reach out and we'll figure out what makes sense.",
   },
   {
     q: "What technologies do you work with?",
@@ -90,7 +90,7 @@ function FAQItem({
         boxShadow: isOpen ? "0 0 40px rgba(124,106,255,0.08)" : "none",
       }}
     >
-      {/* Accent line â€” muncul saat open */}
+      {/* Accent line - muncul saat open */}
       <div
         className="absolute top-0 left-8 right-8 h-px transition-opacity duration-300"
         style={{
@@ -196,10 +196,10 @@ export default function FAQ() {
   const toggle = (i: number) => setOpenIndex(openIndex === i ? null : i);
 
   return (
-    <section id="faq" ref={sectionRef} className="relative px-6 pt-32 pb-32">
+    <section id="faq" ref={sectionRef} className="relative px-6 pt-20 pb-20">
       <div className="max-w-3xl mx-auto w-full">
 
-        {/* â”€â”€ Label â”€â”€ */}
+        {/* -- Label -- */}
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -207,16 +207,17 @@ export default function FAQ() {
           className="text-xs tracking-[0.2em] uppercase mb-4"
           style={{ color: "var(--accent-light)" }}
         >
+          {isID ? "Decision Support" : "Decision Support"}
         </motion.p>
 
-        {/* â”€â”€ Heading â”€â”€ */}
+        {/* -- Heading -- */}
         <div className="mb-16">
           <RevealText delay={0.1}>
             <span
               className="text-[clamp(32px,8vw,72px)] font-black tracking-tighter leading-none"
               style={{ color: "var(--text)" }}
             >
-              Got{" "}
+              {isID ? "Jawaban untuk " : "Answers for "}
               <em
                 style={{
                   fontFamily: "Georgia, serif",
@@ -225,13 +226,13 @@ export default function FAQ() {
                   color: "var(--text-muted)",
                 }}
               >
-                questions?
+                {isID ? "keputusanmu." : "your next move."}
               </em>
             </span>
           </RevealText>
         </div>
 
-        {/* â”€â”€ FAQ List â”€â”€ */}
+        {/* -- FAQ List -- */}
         {inView && (
           <div className="flex flex-col gap-3">
           {shownFaqs.map((faq, i) => (
@@ -246,7 +247,7 @@ export default function FAQ() {
           </div>
         )}
 
-        {/* â”€â”€ Bottom CTA â”€â”€ */}
+        {/* -- Bottom CTA -- */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -259,10 +260,12 @@ export default function FAQ() {
         >
           <div>
             <p className="font-semibold text-sm" style={{ color: "var(--text)" }}>
-              Still have questions?
+              {isID ? "Masih ada pertanyaan?" : "Need strategic clarity?"}
             </p>
             <p className="text-xs mt-0.5" style={{ color: "var(--text-muted)" }}>
-              I&apos;m happy to chat before you commit to anything.
+              {isID
+                ? "Kita bisa bahas dulu sebelum kamu commit."
+                : "Let&apos;s align scope, timeline, and outcomes before you commit."}
             </p>
           </div>
           <a
@@ -273,7 +276,7 @@ export default function FAQ() {
               boxShadow: "0 0 24px var(--accent-glow)",
             }}
           >
-            {isID ? "Tanya langsung" : "Ask me directly"} â†—
+            {isID ? "Tanya langsung" : "Ask me directly"} -&gt;
           </a>
         </motion.div>
 
@@ -281,6 +284,7 @@ export default function FAQ() {
     </section>
   );
 }
+
 
 
 
