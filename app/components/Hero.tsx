@@ -12,7 +12,7 @@ import { useLanguage } from "./LanguageProvider";
 
 // --- Marquee brand text di background ---------------
 function BrandMarquee() {
-  const text = "AINURA™";
+  const text = " AINURA™ ";
   const repeated = text.repeat(10);
 
   return (
