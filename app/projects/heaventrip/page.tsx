@@ -43,7 +43,7 @@ export default function HeavenTripCaseStudyPage() {
           style={{ borderColor: "var(--border)" }}
         >
           <img
-            src="/heaventrip.png"
+            src="/heaventrip.webp"
             alt="HeavenTrip project preview"
             className="w-full h-auto block"
           />

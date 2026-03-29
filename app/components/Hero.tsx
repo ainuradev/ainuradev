@@ -154,7 +154,7 @@ function TiltCard({ isID }: { isID: boolean }) {
           import Image from "next/image"
           <Image src="/photo.jpg" alt="Ainura" fill className="object-cover object-top" priority />
         */}
-        <Image src="/ainura.png" alt="Ainura" fill className="object-cover object-top" priority />
+        <Image src="/ainura.webp" alt="Ainura" fill className="object-cover object-top" priority />
 
         {/* Gradient overlay bawah */}
         <div

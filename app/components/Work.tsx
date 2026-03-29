@@ -31,7 +31,7 @@ const projects: Project[] = [
     },
     color: "#2f7cf6",
     bg: "linear-gradient(135deg, #071425 0%, #0f2f5f 50%, #2f7cf6 100%)",
-    mockupImage: "/heaventrip.png",
+    mockupImage: "/heaventrip.webp",
     url: "/projects/heaventrip",
   },
   {
