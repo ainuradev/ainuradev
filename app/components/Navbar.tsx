@@ -110,7 +110,7 @@ export default function Navbar() {
                 onClick={() => setLocale("en")}
                 className="px-2.5 py-1.5 text-[11px] font-bold tracking-widest transition-colors"
                 style={{
-                  color: locale === "en" ? "#fff" : "var(--text-muted)",
+                  color: locale === "en" ? "var(--accent-contrast)" : "var(--text-muted)",
                   background: locale === "en" ? "var(--accent)" : "transparent",
                 }}
               >
@@ -120,7 +120,7 @@ export default function Navbar() {
                 onClick={() => setLocale("id")}
                 className="px-2.5 py-1.5 text-[11px] font-bold tracking-widest transition-colors"
                 style={{
-                  color: locale === "id" ? "#fff" : "var(--text-muted)",
+                  color: locale === "id" ? "var(--accent-contrast)" : "var(--text-muted)",
                   background: locale === "id" ? "var(--accent)" : "transparent",
                 }}
               >
@@ -157,9 +157,10 @@ export default function Navbar() {
             {/* Contact Button */}
             <a
               href="#contact"
-              className="px-3 md:px-5 py-2 rounded-xl text-[11px] md:text-[13px] font-bold tracking-[0.14em] md:tracking-widest text-white transition-all duration-200 hover:opacity-90 hover:scale-[1.02] flex-shrink-0"
+              className="px-3 md:px-5 py-2 rounded-xl text-[11px] md:text-[13px] font-bold tracking-[0.14em] md:tracking-widest transition-all duration-200 hover:opacity-90 hover:scale-[1.02] flex-shrink-0"
               style={{
                 background: "var(--accent)",
+                color: "var(--accent-contrast)",
                 boxShadow: "0 0 20px var(--accent-glow)",
               }}
             >
@@ -220,7 +221,7 @@ export default function Navbar() {
             className="px-3 py-2 rounded-xl text-xs font-bold tracking-widest"
             style={{
               background: locale === "en" ? "var(--accent)" : "var(--surface)",
-              color: locale === "en" ? "#fff" : "var(--text-muted)",
+              color: locale === "en" ? "var(--accent-contrast)" : "var(--text-muted)",
             }}
           >
             EN
@@ -230,7 +231,7 @@ export default function Navbar() {
             className="px-3 py-2 rounded-xl text-xs font-bold tracking-widest"
             style={{
               background: locale === "id" ? "var(--accent)" : "var(--surface)",
-              color: locale === "id" ? "#fff" : "var(--text-muted)",
+              color: locale === "id" ? "var(--accent-contrast)" : "var(--text-muted)",
             }}
           >
             ID
@@ -262,8 +263,8 @@ export default function Navbar() {
         <a
           href="#contact"
           onClick={() => setMenuOpen(false)}
-          className="flex items-center justify-center gap-2 mx-1 py-3 rounded-xl text-sm font-bold tracking-widest text-white"
-          style={{ background: "var(--accent)" }}
+          className="flex items-center justify-center gap-2 mx-1 py-3 rounded-xl text-sm font-bold tracking-widest"
+          style={{ background: "var(--accent)", color: "var(--accent-contrast)" }}
         >
           {isID ? "KONTAK" : "CONTACT"}
         </a>

@@ -384,7 +384,10 @@ export default function Work() {
         </div>
 
         <button
+          type="button"
           onClick={() => paginate(-1)}
+          aria-label={isID ? `Proyek sebelumnya, sekarang ${projects[prevIdx].title}` : `Previous project, now ${projects[prevIdx].title}`}
+          title={isID ? "Proyek sebelumnya" : "Previous project"}
           className="absolute z-30 w-11 h-11 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95"
           style={{
             left: "clamp(8px, calc(50% - 410px), calc(50% - 410px))",
@@ -398,7 +401,10 @@ export default function Work() {
         </button>
 
         <button
+          type="button"
           onClick={() => paginate(1)}
+          aria-label={isID ? `Proyek berikutnya, sekarang ${projects[nextIdx].title}` : `Next project, now ${projects[nextIdx].title}`}
+          title={isID ? "Proyek berikutnya" : "Next project"}
           className="absolute z-30 w-11 h-11 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95"
           style={{
             right: "clamp(8px, calc(50% - 410px), calc(50% - 410px))",
@@ -412,7 +418,7 @@ export default function Work() {
         </button>
       </motion.div>
 
-      <div className="flex items-center justify-center gap-2 mt-8">
+      <div className="flex items-center justify-center gap-1 mt-8">
         {projects.map((p, i) => (
           <button
             key={i}
@@ -420,17 +426,29 @@ export default function Work() {
               setDirection(i > active ? 1 : -1);
               setActive(i);
             }}
-            className="transition-all duration-300"
+            type="button"
+            aria-label={`${isID ? "Buka proyek" : "Open project"} ${i + 1}: ${p.title}`}
+            aria-pressed={i === active}
+            className="relative flex h-11 w-11 items-center justify-center rounded-full transition-all duration-300"
             style={{
-              width: i === active ? "24px" : "6px",
-              height: "6px",
-              borderRadius: "3px",
-              background: i === active ? p.color : "rgba(255,255,255,0.2)",
+              touchAction: "manipulation",
             }}
-          />
+          >
+            <span
+              aria-hidden="true"
+              className="pointer-events-none transition-all duration-300"
+              style={{
+                width: i === active ? "24px" : "6px",
+                height: "6px",
+                borderRadius: "999px",
+                background: i === active ? p.color : "rgba(255,255,255,0.2)",
+                boxShadow: i === active ? `0 0 14px ${p.color}55` : "none",
+                display: "block",
+              }}
+            />
+          </button>
         ))}
       </div>
     </section>
   );
 }
-
